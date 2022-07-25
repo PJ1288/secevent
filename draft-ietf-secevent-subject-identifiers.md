@@ -274,7 +274,7 @@ Below are non-normative example Subject Identifiers for the Decentralized Identi
 
 ### Uniform Resource Identifier (URI) Format {#sub-id-uri}
 
-The Uniform Resource Identifier (URI) Format identifies a subject using a URI as defined in {{RFC3986}}. This identifier format makes no assumptions or guarantees with regard to the content, scheme, or reachability of the URI within the field. Subject Identifiers in this format MUST contain a `uri` members whose value is a URI for the subject being identified. The `uri` member is REQUIRED and MUST NOT be null or empty. The URI format is identified by the name `uri`.
+The Uniform Resource Identifier (URI) Format identifies a subject using a URI as defined in {{!RFC3986}}. This identifier format makes no assumptions or guarantees with regard to the content, scheme, or reachability of the URI within the field. Subject Identifiers in this format MUST contain a `uri` members whose value is a URI for the subject being identified. The `uri` member is REQUIRED and MUST NOT be null or empty. The URI format is identified by the name `uri`.
 
 Below are non-normative example Subject Identifiers for the URI format:
 
@@ -284,7 +284,7 @@ Below are non-normative example Subject Identifiers for the URI format:
   "uri": "https://user.example.com/"
 }
 ~~~
-{: #figexamplesubiddidbare title="Example: Subject Identifier for the URI Format, identifying a subject with a website URI"}
+{: #figexamplesubiduidbare title="Example: Subject Identifier for the URI Format, identifying a subject with a website URI"}
 
 ~~~
 {
@@ -292,7 +292,7 @@ Below are non-normative example Subject Identifiers for the URI format:
   "uri": "urn:uuid:4e851e98-83c4-4743-a5da-150ecb53042f"
 }
 ~~~
-{: #figexamplesubiddidbare title="Example: Subject Identifier for the URI Format, identifying a subject with a random URN"}
+{: #figexamplesubidurnbare title="Example: Subject Identifier for the URI Format, identifying a subject with a random URN"}
 
 ### Aliases Identifier Format {#sub-id-aliases}
 The Aliases Identifier Format describes a subject that is identified with a list of different Subject Identifiers. It is intended for use when a variety of identifiers have been shared with the party that will be interpreting the Subject Identifier, and it is unknown which of those identifiers they will recognize or support.  Subject Identifiers in this format MUST contain an `identifiers` member whose value is a JSON array containing one or more Subject Identifiers.  Each Subject Identifier in the array MUST identify the same entity.  The `identifiers` member is REQUIRED and MUST NOT be null or empty.  It MAY contain multiple instances of the same Identifier Format (e.g., multiple Email Subject Identifiers), but SHOULD NOT contain exact duplicates.  This format is identified by the name `aliases`. 
