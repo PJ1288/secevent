@@ -182,7 +182,7 @@ The following Identifier Formats are registered in the IANA "Security Event Iden
 Since the subject identifier format conveys semantic information, applications SHOULD choose the most specific possible format for the identifier in question. For example, an email address can be conveyed using a `mailto:` URI and the `uri` identifier format, but since the value is known to be an email address, the application should prefer to use the `email` identifier format instead.
 
 ### Account Identifier Format {#sub-id-acct}
-The Account Identifier Format identifies a subject using an account at a service provider, identified with an `acct` URI as defined in {{!RFC7565}}.  Subject Identifiers in this format MUST contain a `uri` member whose value is the `acct` URI for the subject.  The `uri` member is REQUIRED and MUST NOT be null or empty.  The Account Identifier Format is identified by a value of `account` in the 'format' member.
+The Account Identifier Format identifies a subject using an account at a service provider, identified with an `acct` URI as defined in {{!RFC7565}}.  Subject Identifiers in this format MUST contain a `uri` member whose value is the `acct` URI for the subject.  The `uri` member is REQUIRED and MUST NOT be null or empty.  The Account Identifier Format is identified by a value of `account` in the `format` member.
 
 Below is a non-normative example Subject Identifier for the Account Identifier Format:
 
