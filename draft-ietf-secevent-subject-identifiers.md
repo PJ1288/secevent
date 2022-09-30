@@ -2,7 +2,7 @@
 title: Subject Identifiers for Security Event Tokens
 abbrev: secevent-subject-identifiers
 docname: draft-ietf-secevent-subject-identifiers-12
-date: 2022-07-24
+date: 2022-09-30
 category: std
 ipr: trust200902
 
@@ -642,3 +642,7 @@ Draft 12 - PJ:
 * Restore the DID format that was removed in -11
 * Added a generic "URI" format
 * Normative advice on choosing the format
+
+Draft 13 - PJ:
+
+* Editorial nits found during AD review
