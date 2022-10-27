@@ -402,7 +402,7 @@ document are to be interpreted as described in <xref target="RFC2119"/>.</t>
 <section anchor="iana-formats"><name>Security Event Identifier Formats Registry</name>
 <t>This document defines Identifier Formats, for which IANA is asked to create and maintain a new registry titled "Security Event Identifier Formats".  Initial values for the Security Event Identifier Formats registry are given in <xref target="sub-ids"/>.  Future assignments are to be made through the Specification Required registration policy <xref target="BCP26"/> and shall follow the template presented in <xref target="iana-formats-template"/>.</t>
 
-<t>Although we can assume that any specification will receive expert review during the publication process, IANA may request additional review by Designated Experts who are able to represent the perspectives of different applications using this specification, in order to enable broadly informed review of registration decisions.  In cases where a registration decision could be perceived as creating a conflict of interest for a particular Expert, that Expert should defer to the judgment of the other Experts.</t>
+<t>It is suggested that multiple Designated Experts be appointed who are able to represent the perspectives of different applications using this specification, in order to enable broadly informed review of registration decisions.</t>
 
 <section anchor="registry-location"><name>Registry Location</name>
 <t>(This section to be removed by the RFC Editor before publication as an RFC.)</t>
@@ -516,7 +516,7 @@ document are to be interpreted as described in <xref target="RFC2119"/>.</t>
 </section>
 </section>
 <section anchor="iana-formats-expert"><name>Guidance for Expert Reviewers</name>
-<t>The Expert Reviewer is expected to review the documentation referenced in a registration request to verify its completeness. The Expert Reviewer must base their decision to accept or reject the request on a fair and impartial assessment of the request. If the Expert Reviewer has a conflict of interest, such as being an author of a defining document referenced by the request, they must recuse themselves from the approval process for that request. In the case where a request is rejected, the Expert Reviewer should provide the requesting party with a written statement expressing the reason for rejection, and be prepared to cite any sources of information that went into that decision.</t>
+<t>The Expert Reviewer is expected to review the documentation referenced in a registration request to verify its completeness. The Expert Reviewer must base their decision to accept or reject the request on a fair and impartial assessment of the request. If the Expert Reviewer has a conflict of interest, such as being an author of a defining document referenced by the request, they must recuse themselves from the approval process for that request. In the case where a request is rejected, the Expert Reviewer must provide the requesting party with a written statement expressing the reason for rejection, and be prepared to cite any sources of information that went into that decision.</t>
 
 <t>Identifier Formats need not be generally applicable and may be highly specific to a particular domain; it is expected that formats may be registered for niche or industry-specific use cases. The Expert Reviewer should focus on whether the format is thoroughly documented, and whether its registration will promote or harm interoperability.  In most cases, the Expert Reviewer should not approve a request if the registration would contribute to confusion, or amount to a synonym for an existing format.</t>
 
@@ -924,7 +924,7 @@ We would also like to acknowledge Aaron Parecki, Denis Pinkas, Justin Richer, Mi
   </back>
 
 <!-- ##markdown-source:
-H4sIAFXdWmMAA819WXPbSJLwO38Fln4Ye5ekRVlyuzUxsaOW3bNy+PpkORwb
+H4sIAATpWmMAA819WXPbSJLwO38Fln4Ye5ekRVlyuzUxsaOW3bNy+PpkORwb
 PRNWESiKaIMABwVIZjs0v/3Lqw5clORuT6weuk2gzqy8KzMxnU5HVVpl+ih6
 Xy9+1XEVnSY6r9JlqksTLYsyeq/jukyrbfTiCl5E58VnnZuRWixKfXUUGR1r
 fD413H2a+u6jpIhztYaxk1It4ZWultNdHabzg1GiKuiwv7e/P53vTfd/GMXw
@@ -1083,65 +1083,63 @@ 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
-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
+ZlZ44RBk6uDdRMa81YpvWlt4gFPbiBL+OVjF1JeXdKXPrNxJxOcaN0BC68WX
+DZUh48rDRUqDY70Rqt0jwr3U9n6LIleA10nKj2nGzTRUUOuD7pZ1C/1OmnVL
+W8CJ1SCCEmXYYeHcEF5gSlA1KSN5Xw6bXxU8+ughs0whLD4aLgXieBDQWPSC
+PhICL+milr+D4YuH5dhm9ojFFH+uwNAFzXqt88SrArvwaMHpjRTGXkUX4Xcf
+ej8+YctGPr5o7o1XdW5RoEm2/tRHaO5emY2KwazdAwtSTCIstjXib3/4MmI9
+K5/0lAcMcN/1d5e2eXT8/uT0NMgIwPRQjvLJiOUB+upySqXGQR5gZQ36MMZY
+jaNpNP5tDKw7SS/Rh/YQVozPfsRn7FHEz0ngi0/4iCrAbDcr/HLAw/HUPgpC
+ZvSXGIur7u+FU8EmMp1fVivk4LaKB+6QAjMBKseAeKleyr5dVdJeAMEYJyDV
+LjUyZCzFk+kShkA13GbSBUEEli8axi1bm4NGfnH+M4lhrPgrn9/hWjATjkUb
+Y4uxqPjICliGLS07pUZV60A5ngyz8fAgpPiG6Jkej7hST6XiZsE8mxKF1zXk
+7rX1L7qVpRsZHnR1iprRwuW3Jq6SJIzzXKDw0DwiaFPZDE01OFhPdeID3QQO
+ZO3PKHTPgnW5oLwgoSXzGR8HZVNJxGLRioPQlhHG1lrXqitAWMQgI3YWHhNQ
+22NeesKxn1Ow8QXhBMCOfDk2rz35+mAEV1KO0hJAYMPLmrXebB6nNbz6hmzV
+evtwdiqwFL3D1lcsNdAsMBsg2k3KTJwW7E7D18uzMRQ2z1bEq+O7J7aEZIsv
+4bnYJPfByhGj0X9GAZsKLr78i4BgfbhR4Jh35qUvJDKD3h1SPSK6gzd9yHkU
+MjsXpWLBMWsk69++Cylr8A17aKaef6dt3CXrs3sy1jf7DbvqLUb/vXY3lJvX
+3ZHkDX7bhhppmN9rL7uTrbo7akQOftu+GnmE32lbt+SUdPeFCTHfsh1UF4OZ
+gjaUEfa99rcrA2Voi3jF/01brGWy0k4W7hLTXb7XLgcDPHu4usTY3n2DJLVs
+gTzrs3P2i7c4+jxTLnUl8Fl+HyBEf6tTjrDEOdmUglNHy4XLNjdEoqb3Uv+o
+2TZi97y2dW3F+gk1JFbUnAIlQY0N40hq3VF5El2iIpTyN7kAZiCkpZpJd3Jy
+5SFKiYfOGllUCzHG+u6ckCSuaFdUjxFwidUvyN2xpot/ldH1jzGs1y3DHrPo
+lH+3l7CSANR8CXaY1IjGUiYmyNfnOyIsb0YGGTuv3KevnO4SgEgUblcDkFyy
+tFuw5cRHuzY6Q0PW3dKRL/NKZTbW0teT9ZvofERJOZhQLd1f6SQnvVttOE6D
+5VEGNCnxNu+nRM937i+jwq87cEdlpK4qT8mV+vKE1XG9oYwTdLKkFfsJmUW0
+C57z7q41xa+SYs7VUQkJ+kvKhl+ykI9RgM0n9j8aH8EVwSq9XKHr21YHpAqb
+hCpxnalSahH9WbzxngxWXDmQ5pOhgmqJuOscVGPNHs2kRnV06iaxDvABlJc6
+fktAGgy8bRSq9GGZiGbozsm2Dr1sPVLbIfUmP8OSsm3geNdFpbm2RM+FHQcb
+UdFEWmQ/psgiEcyMlA08s4QVzk3tqYxluqgruZjJl7UhzEBrcs1l36jI6TYv
+8i27jPEe9IuY7zYJIxr1flGz4Ze4g9dwwE84FLk+4Ce0J++qdveuLSiK+QsN
+sXMH2388fND6oOijbjHNoDB5y+dkbR8UeJxIIPJOIhzc415p56lqSDa9/xu8
+aXoRWwKqm+7QK6rgFChkaTQ6jvEyK9MJV6w1HS8yepFY+9PJX8Z5Mb5p+MAY
+w6huMzOK/HNgm7qwSXJxtD813PB1tD5CiOHQ0lcuv95zvtx7dFRmfLXe98ni
+icRS4+D+soFiyMv0MsVbSJBsqeXiDbh8tHfc5MKwm1IeRNGxKgHo72Al8ed0
+AueYwwDv0vyzApJ9WSO9RGfIhMpJ9Br701c+OYqfVZYmXBogEMaNxO48pcGh
+CUq8Ki5HO4/nj3V40veeo729aBod/wT/+Zki6RP+CrS8nNPLI0T744S/vxO4
+dXAyrCFH2/Nh+bYYIQflQ9czzd+I8EGZHJZa0BPE54tms+QTJSF9YoQPmydT
+eiOkQN14YfQ1PvEKWanZWz88dH3iJ8vQG4Ljz9ym9/2mKRCBZJTfXuOreBHn
+7lGoHy7mwyZhPzArLih6/cBP2tD01Ue5RDH08L4NwzDZZCpmoDS3LpEbqED4
+cAXeiB1+oMjcpaiy4Xqb3yyVE5xI2RNJjnCHxdG+fl8HnX11uH3gwJu4BUwa
+oAvO0bq2KP/CbS5n1cm3Hbh/XvqPrqV0kecu0P2SD/2SLdqRmOL9eoSj31Nb
+dEZJ/SnbTPKnim55GJnmaTiNnGRtPx4mbCLBwDnMaeCUGvtpCc9Odn+fjEfg
+5uPedLDwaz0pkT9+IWbWu3W31SYEPoUQCPCgCGut2WPxQbDir2RXL30GzZJm
+zVJgdzpTK4ajnRE1Y6lbchhZu7p7GDdhI1jIwiGlNQgKQWOk1I3SlC6mIjw3
+x/oocert6fOfGbwkAQGuPTe43F/ukgTOcvdmTaYdN3U2xjcr/FeOh0Ll6IMK
+wcdL7FmMPxFa2cR3qlYPj5s3JzgmDsCfa6H4w4EZekDeFx6RFPmfvOWzMy7B
+hgAgcXaEjJHvHU6IkVhy52/4iMYRdwDOY1gp2foqnfUnxL4sftexwMiP07jv
+Bgs94IZXoN1jFawtYmlpUxa5Lih0waAN3P2vaPyt6yRhwXytUKVdcnCBZxA/
+eAbxYr0B25jcV+7WEQUa4SjFiQWuj4lLapSpyeC1IY/4wXVP3eOB0yTMGHez
+dmeN3hcCn08IASZ5loUXs9YszYv3gUmdTs2z33Zb75vzbMJh9LU7YKLBy9A7
+Q9+s9+6CvjAFqVJj+ZSTN3gpmLe/8S0cOYzSs1/eALRjW1LlrYCxNqXo8FLK
+fdWMD+q53DL5j51JkCdpMuEnz6imbeNDZWHLu3ytzB6aMDUyTDt1DlimOOQf
+M7zc8jyV2SKAfa5BwfBn+AXes0lLQcD6UT2d4H0GVACk2XbjLjuByCFvHlO2
+lixTosyRs9FrOciVSrg+xxpElv8IwxRoMCYFfBY9RHAA7HpY+SOY7nVqYrBj
+VK6xwKsmNRudYMv0izZuwz96kr5Thzlq4O9eBtBh5RFZgusBe/Yd5r7D7hng
+PRkHokJZnMgUHfqt4A1MyIQ+7gzsvFaZWDKYs2VXtO9XdAZaWiFR81gUSkZm
+x5MyzmCB+afzud+zxfNojNVvpBu8fuOoVCVUXRnz1vFzFK4iYQPf5k/8Uprg
+k1ishAPmjp/LNlzHA9/x5/SL9UsYji3q7fn/AebFIIQ/iAAA
 
 -->
 
