@@ -1,8 +1,8 @@
 ---
 title: Subject Identifiers for Security Event Tokens
 abbrev: secevent-subject-identifiers
-docname: draft-ietf-secevent-subject-identifiers-13
-date: 2022-10-12
+docname: draft-ietf-secevent-subject-identifiers-14
+date: 2022-10-27
 category: std
 ipr: trust200902
 
@@ -448,9 +448,9 @@ IANA Considerations {#iana}
 
 Security Event Identifier Formats Registry {#iana-formats}
 ------------------------------------------------
-This document defines Identifier Formats, for which IANA is asked to create and maintain a new registry titled "Security Event Identifier Formats".  Initial values for the Security Event Identifier Formats registry are given in {{sub-ids}}.  Future assignments are to be made through the Expert Review registration policy {{BCP26}} and shall follow the template presented in {{iana-formats-template}}.
+This document defines Identifier Formats, for which IANA is asked to create and maintain a new registry titled "Security Event Identifier Formats".  Initial values for the Security Event Identifier Formats registry are given in {{sub-ids}}.  Future assignments are to be made through the Specification Required registration policy {{BCP26}} and shall follow the template presented in {{iana-formats-template}}.
 
-It is suggested that multiple Designated Experts be appointed who are able to represent the perspectives of different applications using this specification, in order to enable broadly informed review of registration decisions.  In cases where a registration decision could be perceived as creating a conflict of interest for a particular Expert, that Expert should defer to the judgment of the other Experts.
+Although we can assume that any specification will receive expert review during the publication process, IANA may request additional review by Designated Experts who are able to represent the perspectives of different applications using this specification, in order to enable broadly informed review of registration decisions.  In cases where a registration decision could be perceived as creating a conflict of interest for a particular Expert, that Expert should defer to the judgment of the other Experts.
 
 ### Registry Location
 (This section to be removed by the RFC Editor before publication as an RFC.)
@@ -646,3 +646,7 @@ Draft 12 - PJ:
 Draft 13 - PJ:
 
 * Editorial nits found during AD review
+
+Draft 13 - PJ:
+
+* Fix IANA issues found during AD review
