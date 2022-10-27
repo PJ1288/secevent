@@ -1,8 +1,8 @@
 ---
 title: Subject Identifiers for Security Event Tokens
 abbrev: secevent-subject-identifiers
-docname: draft-ietf-secevent-subject-identifiers-13
-date: 2022-10-12
+docname: draft-ietf-secevent-subject-identifiers-14
+date: 2022-10-27
 category: std
 ipr: trust200902
 
@@ -448,9 +448,9 @@ IANA Considerations {#iana}
 
 Security Event Identifier Formats Registry {#iana-formats}
 ------------------------------------------------
-This document defines Identifier Formats, for which IANA is asked to create and maintain a new registry titled "Security Event Identifier Formats".  Initial values for the Security Event Identifier Formats registry are given in {{sub-ids}}.  Future assignments are to be made through the Expert Review registration policy {{BCP26}} and shall follow the template presented in {{iana-formats-template}}.
+This document defines Identifier Formats, for which IANA is asked to create and maintain a new registry titled "Security Event Identifier Formats".  Initial values for the Security Event Identifier Formats registry are given in {{sub-ids}}.  Future assignments are to be made through the Specification Required registration policy {{BCP26}} and shall follow the template presented in {{iana-formats-template}}.
 
-It is suggested that multiple Designated Experts be appointed who are able to represent the perspectives of different applications using this specification, in order to enable broadly informed review of registration decisions.  In cases where a registration decision could be perceived as creating a conflict of interest for a particular Expert, that Expert should defer to the judgment of the other Experts.
+It is suggested that multiple Designated Experts be appointed who are able to represent the perspectives of different applications using this specification, in order to enable broadly informed review of registration decisions.
 
 ### Registry Location
 (This section to be removed by the RFC Editor before publication as an RFC.)
@@ -531,7 +531,7 @@ Defining Document(s)
 * Defining Document(s): {{sub-ids}} of this document.
 
 ### Guidance for Expert Reviewers {#iana-formats-expert}
-The Expert Reviewer is expected to review the documentation referenced in a registration request to verify its completeness. The Expert Reviewer must base their decision to accept or reject the request on a fair and impartial assessment of the request. If the Expert Reviewer has a conflict of interest, such as being an author of a defining document referenced by the request, they must recuse themselves from the approval process for that request. In the case where a request is rejected, the Expert Reviewer should provide the requesting party with a written statement expressing the reason for rejection, and be prepared to cite any sources of information that went into that decision.
+The Expert Reviewer is expected to review the documentation referenced in a registration request to verify its completeness. The Expert Reviewer must base their decision to accept or reject the request on a fair and impartial assessment of the request. If the Expert Reviewer has a conflict of interest, such as being an author of a defining document referenced by the request, they must recuse themselves from the approval process for that request. In the case where a request is rejected, the Expert Reviewer must provide the requesting party with a written statement expressing the reason for rejection, and be prepared to cite any sources of information that went into that decision.
 
 Identifier Formats need not be generally applicable and may be highly specific to a particular domain; it is expected that formats may be registered for niche or industry-specific use cases. The Expert Reviewer should focus on whether the format is thoroughly documented, and whether its registration will promote or harm interoperability.  In most cases, the Expert Reviewer should not approve a request if the registration would contribute to confusion, or amount to a synonym for an existing format.
  
@@ -646,3 +646,7 @@ Draft 12 - PJ:
 Draft 13 - PJ:
 
 * Editorial nits found during AD review
+
+Draft 14 - PJ:
+
+* Fix IANA issues found during AD review

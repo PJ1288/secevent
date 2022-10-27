@@ -5,14 +5,14 @@
 Security Events Working Group                            A. Backman, Ed.
 Internet-Draft                                                    Amazon
 Intended status: Standards Track                            M. Scurtescu
-Expires: 25 January 2023                                        Coinbase
+Expires: 30 April 2023                                          Coinbase
                                                                  P. Jain
                                                                   Fastly
-                                                            24 July 2022
+                                                         27 October 2022
 
 
              Subject Identifiers for Security Event Tokens
-               draft-ietf-secevent-subject-identifiers-12
+               draft-ietf-secevent-subject-identifiers-14
 
 Abstract
 
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 25 January 2023.
+   This Internet-Draft will expire on 30 April 2023.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Backman, et al.          Expires 25 January 2023                [Page 1]
+Backman, et al.           Expires 30 April 2023                 [Page 1]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
    Please review these documents carefully, as they describe your rights
@@ -88,19 +88,18 @@ Table of Contents
    6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .  14
      6.1.  Identifier Correlation  . . . . . . . . . . . . . . . . .  14
    7.  Security Considerations . . . . . . . . . . . . . . . . . . .  15
-     7.1.  Confidentiality and Integrity . . . . . . . . . . . . . .  15
    8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  15
      8.1.  Security Event Identifier Formats Registry  . . . . . . .  15
-       8.1.1.  Registry Location . . . . . . . . . . . . . . . . . .  16
+       8.1.1.  Registry Location . . . . . . . . . . . . . . . . . .  15
        8.1.2.  Registration Template . . . . . . . . . . . . . . . .  16
        8.1.3.  Initial Registry Contents . . . . . . . . . . . . . .  16
        8.1.4.  Guidance for Expert Reviewers . . . . . . . . . . . .  18
-     8.2.  JSON Web Token Claims Registration  . . . . . . . . . . .  19
+     8.2.  JSON Web Token Claims Registration  . . . . . . . . . . .  18
        8.2.1.  Registry Contents . . . . . . . . . . . . . . . . . .  19
    9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  19
      9.1.  Normative References  . . . . . . . . . . . . . . . . . .  19
      9.2.  Informative References  . . . . . . . . . . . . . . . . .  20
-   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  21
+   Acknowledgements  . . . . . . . . . . . . . . . . . . . . . . . .  20
    Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .  21
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  24
 
@@ -109,9 +108,10 @@ Table of Contents
 
 
 
-Backman, et al.          Expires 25 January 2023                [Page 2]
+
+Backman, et al.           Expires 30 April 2023                 [Page 2]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 1.  Introduction
@@ -135,7 +135,7 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    by which a subject is being identified.
 
    To address this problem, this specification defines Subject
-   Identifiers - JSON [RFC7159] objects containing information
+   Identifiers - JSON [RFC8259] objects containing information
    identifying a subject - and Identifier Formats - named sets of rules
    describing how to encode different kinds of subject identifying
    information (e.g., an email address, or an issuer and subject pair)
@@ -165,9 +165,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023                [Page 3]
+Backman, et al.           Expires 30 April 2023                 [Page 3]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
    {
@@ -221,9 +221,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023                [Page 4]
+Backman, et al.           Expires 30 April 2023                 [Page 4]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 2.  Notational Conventions
@@ -234,18 +234,18 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 2.1.  Definitions
 
-   This specification utilizes terminology defined in [RFC7159] and
+   This specification utilizes terminology defined in [RFC8259] and
    [RFC8417].
 
    Within this specification, the terms "Subject" and "subject" refer
    generically to anything being identified via one or more pieces of
-   information.  The term "JWT Subject" refers specifically to the to
-   the subject of a JWT. (i.e., the subject that the JWT asserts claims
-   about)
+   information.  The term "JWT Subject" refers specifically to the
+   subject of a JWT (i.e., the subject that the JWT asserts claims
+   about).
 
 3.  Subject Identifiers
 
-   A Subject Identifier is a JSON [RFC7159] object whose contents may be
+   A Subject Identifier is a JSON [RFC8259] object whose contents may be
    used to identify a subject within some context.  An Identifier Format
    is a named definition of a set of information that may be used to
    identify a subject, and the rules for encoding that information as a
@@ -277,32 +277,33 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023                [Page 5]
+Backman, et al.           Expires 30 April 2023                 [Page 5]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 3.1.  Identifier Formats versus Principal Types
 
    Identifier Formats define how to encode identifying information for a
-   subject.  They do not define the type or nature of the subject
-   itself.  E.g., While the email Identifier Format declares that the
-   value of the email member is an email address, a subject in a
-   Security Event that is identified by an email Subject Identifier
-   could be an end user who controls that email address, the mailbox
-   itself, or anything else that the transmitter and receiver both
-   understand to be associated with that email address.  Consequently
-   Subject Identifiers remove ambiguity around how a subject is being
-   identified, and how to parse an identifying structure, but do not
-   remove ambiguity around how to resolve that identifier to a subject.
-   For example, consider a directory management API that allows callers
-   to identify users and groups through both opaque unique identifiers
-   and email addresses.  Such an API could use Subject Identifiers to
-   disambiguate between which of these two types of identifiers is in
-   use.  However, the API would have to determine whether the subject is
-   a user or group via some other means, such as by querying a database,
-   interpreting other parameters in the request, or inferring the type
-   from the API contract.
+   subject.  Unlike Principal Types, they do not define the type or
+   nature of the subject itself.  E.g., While the email Identifier
+   Format declares that the value of the email member is an email
+   address, a subject in a Security Event that is identified by an email
+   Subject Identifier could be an end user who controls that email
+   address, the mailbox itself, or anything else that the transmitter
+   and receiver both understand to be associated with that email
+   address.  Consequently Subject Identifiers remove ambiguity around
+   how a subject is being identified, and how to parse an identifying
+   structure, but do not remove ambiguity around how to resolve that
+   identifier to a subject.  For example, consider a directory
+   management API that allows callers to identify users and groups
+   through both opaque unique identifiers and email addresses.  Such an
+   API could use Subject Identifiers to disambiguate between which of
+   these two types of identifiers is in use.  However, the API would
+   have to determine whether the subject is a user or group via some
+   other means, such as by querying a database, interpreting other
+   parameters in the request, or inferring the type from the API
+   contract.
 
 3.2.  Identifier Format Definitions
 
@@ -323,7 +324,7 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    [RFC7565].  Subject Identifiers in this format MUST contain a uri
    member whose value is the acct URI for the subject.  The uri member
    is REQUIRED and MUST NOT be null or empty.  The Account Identifier
-   Format is identified by the name account.
+   Format is identified by a value of account in the format member.
 
    Below is a non-normative example Subject Identifier for the Account
    Identifier Format:
@@ -332,10 +333,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-
-Backman, et al.          Expires 25 January 2023                [Page 6]
+Backman, et al.           Expires 30 April 2023                 [Page 6]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
    {
@@ -389,15 +389,15 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023                [Page 7]
+Backman, et al.           Expires 30 April 2023                 [Page 7]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 3.2.3.  Issuer and Subject Identifier Format
 
    The Issuer and Subject Identifier Format identifies a subject using a
-   pair of iss and sub members, analagous to how subjects are identified
+   pair of iss and sub members, analogous to how subjects are identified
    using the iss and sub claims in OpenID Connect [OpenID.Core] ID
    Tokens.  These members MUST follow the formats of the iss member and
    sub member defined by [RFC7519], respectively.  Both the iss member
@@ -410,7 +410,7 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
    {
      "format": "iss_sub",
-     "iss": "http://issuer.example.com/",
+     "iss": "https://issuer.example.com/",
      "sub": "145234573"
    }
 
@@ -445,9 +445,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023                [Page 8]
+Backman, et al.           Expires 30 April 2023                 [Page 8]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 3.2.5.  Phone Number Identifier Format
@@ -501,9 +501,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023                [Page 9]
+Backman, et al.           Expires 30 April 2023                 [Page 9]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
         Figure 10: Example: Subject Identifier for the Decentralized
@@ -557,9 +557,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023               [Page 10]
+Backman, et al.           Expires 30 April 2023                [Page 10]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
    aliases Subject Identifiers MUST NOT be nested; i.e., the identifiers
@@ -613,9 +613,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023               [Page 11]
+Backman, et al.           Expires 30 April 2023                [Page 11]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
    does not understand the format of the first claim.  For example, an
@@ -669,9 +669,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023               [Page 12]
+Backman, et al.           Expires 30 April 2023                [Page 12]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
    {
@@ -725,9 +725,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023               [Page 13]
+Backman, et al.           Expires 30 April 2023                [Page 13]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
    {
@@ -781,9 +781,9 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
 
 
-Backman, et al.          Expires 25 January 2023               [Page 14]
+Backman, et al.           Expires 30 April 2023                [Page 14]
 
-Internet-Draft        secevent-subject-identifiers             July 2022
+Internet-Draft        secevent-subject-identifiers          October 2022
 
 
    on that.  When transmitting Subject Identifiers, the transmitter
@@ -792,8 +792,8 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    identifiers are related (e.g., because they were previously sent to
    the recipient as claims in an OpenID Connect ID Token), or when
    correlation is essential to the use case.  Implementers must consider
-   such risks, and specs that use subject identifiers must provide
-   appropriate privacy considerations of their own.
+   such risks, and specifications that use subject identifiers must
+   provide appropriate privacy considerations of their own.
 
    The considerations described in Section 6 of [RFC8417] also apply
    when Subject Identifiers are used within SETs.  The considerations
@@ -801,8 +801,6 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    Identifiers are used within JWTs.
 
 7.  Security Considerations
-
-7.1.  Confidentiality and Integrity
 
    This specification does not define any mechanism for ensuring the
    confidentiality or integrity of a Subject Identifier.  Where such
@@ -822,30 +820,27 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    create and maintain a new registry titled "Security Event Identifier
    Formats".  Initial values for the Security Event Identifier Formats
    registry are given in Section 3.  Future assignments are to be made
-   through the Expert Review registration policy [BCP26] and shall
-   follow the template presented in Section 8.1.2.
+   through the Specification Required registration policy [BCP26] and
+   shall follow the template presented in Section 8.1.2.
 
    It is suggested that multiple Designated Experts be appointed who are
    able to represent the perspectives of different applications using
    this specification, in order to enable broadly informed review of
-   registration decisions.  In cases where a registration decision could
-   be perceived as creating a conflict of interest for a particular
-   Expert, that Expert should defer to the judgment of the other
-   Experts.
-
-
-
-
-
-Backman, et al.          Expires 25 January 2023               [Page 15]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
+   registration decisions.
 
 8.1.1.  Registry Location
 
    (This section to be removed by the RFC Editor before publication as
    an RFC.)
+
+
+
+
+
+Backman, et al.           Expires 30 April 2023                [Page 15]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
 
    The authors recommend that the Identifier Formats registry be located
    at https://www.iana.org/assignments/secevent/.
@@ -890,19 +885,18 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
    *  Defining Document(s): Section 3 of this document.
 
-
-
-
-Backman, et al.          Expires 25 January 2023               [Page 16]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
-
 8.1.3.2.  Email Identifier Format
 
    *  Format Name: email
 
    *  Format Description: Subject identifier based on email address.
+
+
+
+Backman, et al.           Expires 30 April 2023                [Page 16]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
 
    *  Change Controller: IETF
 
@@ -946,19 +940,19 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    *  Format Description: Subject identifier based on a decentralized
       identifier (DID).
 
-
-
-
-Backman, et al.          Expires 25 January 2023               [Page 17]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
-
    *  Change Controller: IETF
 
    *  Defining Document(s): Section 3 of this document.
 
 8.1.3.7.  Uniform Resource Identifier Format
+
+
+
+
+Backman, et al.           Expires 30 April 2023                [Page 17]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
 
    *  Format Name: "uri"
 
@@ -989,7 +983,7 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    Expert Reviewer has a conflict of interest, such as being an author
    of a defining document referenced by the request, they must recuse
    themselves from the approval process for that request.  In the case
-   where a request is rejected, the Expert Reviewer should provide the
+   where a request is rejected, the Expert Reviewer must provide the
    requesting party with a written statement expressing the reason for
    rejection, and be prepared to cite any sources of information that
    went into that decision.
@@ -1003,18 +997,18 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    the registration would contribute to confusion, or amount to a
    synonym for an existing format.
 
-
-
-Backman, et al.          Expires 25 January 2023               [Page 18]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
-
 8.2.  JSON Web Token Claims Registration
 
    This document defines the sub_id JWT Claim, which IANA is asked to
    register in the "JSON Web Token Claims" registry IANA JSON Web Token
    Claims Registry [IANA.JWT.Claims] established by [RFC7519].
+
+
+
+Backman, et al.           Expires 30 April 2023                [Page 18]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
 
 8.2.1.  Registry Contents
 
@@ -1057,15 +1051,6 @@ Internet-Draft        secevent-subject-identifiers             July 2022
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
               <https://www.rfc-editor.org/info/rfc3986>.
 
-
-
-
-
-Backman, et al.          Expires 25 January 2023               [Page 19]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
-
    [RFC5321]  Klensin, J., "Simple Mail Transfer Protocol", RFC 5321,
               DOI 10.17487/RFC5321, October 2008,
               <https://www.rfc-editor.org/info/rfc5321>.
@@ -1074,9 +1059,12 @@ Internet-Draft        secevent-subject-identifiers             July 2022
               DOI 10.17487/RFC5322, October 2008,
               <https://www.rfc-editor.org/info/rfc5322>.
 
-   [RFC7159]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
-              Interchange Format", RFC 7159, DOI 10.17487/RFC7159, March
-              2014, <https://www.rfc-editor.org/info/rfc7159>.
+
+
+Backman, et al.           Expires 30 April 2023                [Page 19]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
 
    [RFC7519]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web Token
               (JWT)", RFC 7519, DOI 10.17487/RFC7519, May 2015,
@@ -1085,6 +1073,11 @@ Internet-Draft        secevent-subject-identifiers             July 2022
    [RFC7565]  Saint-Andre, P., "The 'acct' URI Scheme", RFC 7565,
               DOI 10.17487/RFC7565, May 2015,
               <https://www.rfc-editor.org/info/rfc7565>.
+
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/info/rfc8259>.
 
    [RFC8417]  Hunt, P., Ed., Jones, M., Denniss, W., and M. Ansari,
               "Security Event Token (SET)", RFC 8417,
@@ -1110,18 +1103,6 @@ Internet-Draft        secevent-subject-identifiers             July 2022
               Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
               <https://www.rfc-editor.org/info/rfc8446>.
 
-
-
-
-
-
-
-
-Backman, et al.          Expires 25 January 2023               [Page 20]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
-
 Acknowledgements
 
    The authors would like to thank the members of the IETF Security
@@ -1130,6 +1111,16 @@ Acknowledgements
    this document.  We would also like to acknowledge Aaron Parecki,
    Denis Pinkas, Justin Richer, Mike Jones and other members of the
    working group for reviewing this document.
+
+
+
+
+
+
+Backman, et al.           Expires 30 April 2023                [Page 20]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
 
 Change Log
 
@@ -1171,13 +1162,6 @@ Change Log
 
    *  Added text prohibiting aliases nesting.
 
-
-
-Backman, et al.          Expires 25 January 2023               [Page 21]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
-
    *  Added privacy considerations for identifier correlation.
 
    Draft 05 - AB:
@@ -1187,9 +1171,16 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
    Draft 06 - AB:
 
+
+
+Backman, et al.           Expires 30 April 2023                [Page 21]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
+
    *  Replaced usage of the word "claim" to describe members of a
       Subject Identifier with the word "member", in accordance with
-      terminology in RFC7159.
+      terminology in RFC8259.
 
    *  Renamed the phone-number type to phone_number and iss-sub to
       iss_sub.
@@ -1226,14 +1217,6 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
       -  Renamed subject_type to format.
 
-
-
-
-Backman, et al.          Expires 25 January 2023               [Page 22]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
-
       -  Renamed "Security Event Subject Identifier Type Registry" to
          "Security Event Identifier Format Registry".
 
@@ -1242,6 +1225,14 @@ Internet-Draft        secevent-subject-identifiers             July 2022
          the subject itself, rather than the identifier.
 
    *  Clarified the meaning of "subject":
+
+
+
+
+Backman, et al.           Expires 30 April 2023                [Page 22]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
 
       -  Defined "subject" as applying generically and "JWT Subject" as
          applying specifically to the subject of a JWT.
@@ -1283,16 +1274,25 @@ Internet-Draft        secevent-subject-identifiers             July 2022
 
    *  Restore the DID format that was removed in -11
 
-
-
-Backman, et al.          Expires 25 January 2023               [Page 23]
-
-Internet-Draft        secevent-subject-identifiers             July 2022
-
-
    *  Added a generic "URI" format
 
    *  Normative advice on choosing the format
+
+   Draft 13 - PJ:
+
+   *  Editorial nits found during AD review
+
+
+
+
+Backman, et al.           Expires 30 April 2023                [Page 23]
+
+Internet-Draft        secevent-subject-identifiers          October 2022
+
+
+   Draft 14 - PJ:
+
+   *  Fix IANA issues found during AD review
 
 Authors' Addresses
 
@@ -1341,4 +1341,4 @@ Authors' Addresses
 
 
 
-Backman, et al.          Expires 25 January 2023               [Page 24]
+Backman, et al.           Expires 30 April 2023                [Page 24]
