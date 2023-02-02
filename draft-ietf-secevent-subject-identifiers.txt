@@ -5,14 +5,14 @@
 Security Events Working Group                            A. Backman, Ed.
 Internet-Draft                                                    Amazon
 Intended status: Standards Track                            M. Scurtescu
-Expires: 30 April 2023                                          Coinbase
+Expires: 5 August 2023                                          Coinbase
                                                                  P. Jain
                                                                   Fastly
-                                                         27 October 2022
+                                                         1 February 2023
 
 
              Subject Identifiers for Security Event Tokens
-               draft-ietf-secevent-subject-identifiers-14
+               draft-ietf-secevent-subject-identifiers-15
 
 Abstract
 
@@ -40,11 +40,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 30 April 2023.
+   This Internet-Draft will expire on 5 August 2023.
 
 Copyright Notice
 
-   Copyright (c) 2022 IETF Trust and the persons identified as the
+   Copyright (c) 2023 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Backman, et al.           Expires 30 April 2023                 [Page 1]
+Backman, et al.           Expires 5 August 2023                 [Page 1]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    Please review these documents carefully, as they describe your rights
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Backman, et al.           Expires 30 April 2023                 [Page 2]
+Backman, et al.           Expires 5 August 2023                 [Page 2]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
 1.  Introduction
@@ -165,9 +165,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                 [Page 3]
+Backman, et al.           Expires 5 August 2023                 [Page 3]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    {
@@ -221,9 +221,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                 [Page 4]
+Backman, et al.           Expires 5 August 2023                 [Page 4]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
 2.  Notational Conventions
@@ -277,9 +277,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                 [Page 5]
+Backman, et al.           Expires 5 August 2023                 [Page 5]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
 3.1.  Identifier Formats versus Principal Types
@@ -321,22 +321,25 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
    The Account Identifier Format identifies a subject using an account
    at a service provider, identified with an acct URI as defined in
-   [RFC7565].  Subject Identifiers in this format MUST contain a uri
-   member whose value is the acct URI for the subject.  The uri member
-   is REQUIRED and MUST NOT be null or empty.  The Account Identifier
-   Format is identified by a value of account in the format member.
+   [RFC7565].  An account is an arrangement or agreement through which a
+   user gets personalized access to a service and gets a unique identity
+   with the service provider.  Subject Identifiers in this format MUST
+   contain a uri member whose value is the acct URI for the subject.
+   The uri member is REQUIRED and MUST NOT be null or empty.  The
+   Account Identifier Format is identified by a value of account in the
+   format member.
+
+
+
+
+
+Backman, et al.           Expires 5 August 2023                 [Page 6]
+
+Internet-Draft        secevent-subject-identifiers         February 2023
+
 
    Below is a non-normative example Subject Identifier for the Account
    Identifier Format:
-
-
-
-
-
-Backman, et al.           Expires 30 April 2023                 [Page 6]
-
-Internet-Draft        secevent-subject-identifiers          October 2022
-
 
    {
      "format": "account",
@@ -386,12 +389,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-
-
-
-Backman, et al.           Expires 30 April 2023                 [Page 7]
+Backman, et al.           Expires 5 August 2023                 [Page 7]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
 3.2.3.  Issuer and Subject Identifier Format
@@ -445,9 +445,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                 [Page 8]
+Backman, et al.           Expires 5 August 2023                 [Page 8]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
 3.2.5.  Phone Number Identifier Format
@@ -501,9 +501,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                 [Page 9]
+Backman, et al.           Expires 5 August 2023                 [Page 9]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
         Figure 10: Example: Subject Identifier for the Decentralized
@@ -557,9 +557,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 10]
+Backman, et al.           Expires 5 August 2023                [Page 10]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    aliases Subject Identifiers MUST NOT be nested; i.e., the identifiers
@@ -613,9 +613,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 11]
+Backman, et al.           Expires 5 August 2023                [Page 11]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    does not understand the format of the first claim.  For example, an
@@ -669,9 +669,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 12]
+Backman, et al.           Expires 5 August 2023                [Page 12]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    {
@@ -725,9 +725,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 13]
+Backman, et al.           Expires 5 August 2023                [Page 13]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    {
@@ -781,9 +781,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 14]
+Backman, et al.           Expires 5 August 2023                [Page 14]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    on that.  When transmitting Subject Identifiers, the transmitter
@@ -837,9 +837,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 15]
+Backman, et al.           Expires 5 August 2023                [Page 15]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    The authors recommend that the Identifier Formats registry be located
@@ -865,11 +865,11 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
    Defining Document(s)
       A reference to the document or documents that define the
-      Identifier Format.  The definition MUST specify the name, format,
-      and meaning of each member that may occur within a Subject
+      Identifier Format.  The definition MUST specify the name,
+      format,and meaning of each member that may occur within a Subject
       Identifier of the defined format, as well as whether each member
-      is optional, required, prohibited, or the circumstances under
-      which the member may be optional, required, or prohibited.  URIs
+      is optional, required or conditional.  If conditional, the
+      circumstances under which it is valid SHOULD be defined.  URIs
       that can be used to retrieve copies of each document SHOULD be
       included.
 
@@ -893,9 +893,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 16]
+Backman, et al.           Expires 5 August 2023                [Page 16]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    *  Change Controller: IETF
@@ -949,9 +949,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 17]
+Backman, et al.           Expires 5 August 2023                [Page 17]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    *  Format Name: "uri"
@@ -1005,9 +1005,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 18]
+Backman, et al.           Expires 5 August 2023                [Page 18]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
 8.2.1.  Registry Contents
@@ -1061,9 +1061,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 19]
+Backman, et al.           Expires 5 August 2023                [Page 19]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    [RFC7519]  Jones, M., Bradley, J., and N. Sakimura, "JSON Web Token
@@ -1117,9 +1117,9 @@ Acknowledgements
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 20]
+Backman, et al.           Expires 5 August 2023                [Page 20]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
 Change Log
@@ -1173,9 +1173,9 @@ Change Log
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 21]
+Backman, et al.           Expires 5 August 2023                [Page 21]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    *  Replaced usage of the word "claim" to describe members of a
@@ -1229,9 +1229,9 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 22]
+Backman, et al.           Expires 5 August 2023                [Page 22]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
       -  Defined "subject" as applying generically and "JWT Subject" as
@@ -1285,14 +1285,18 @@ Internet-Draft        secevent-subject-identifiers          October 2022
 
 
 
-Backman, et al.           Expires 30 April 2023                [Page 23]
+Backman, et al.           Expires 5 August 2023                [Page 23]
 
-Internet-Draft        secevent-subject-identifiers          October 2022
+Internet-Draft        secevent-subject-identifiers         February 2023
 
 
    Draft 14 - PJ:
 
    *  Fix IANA issues found during AD review
+
+   Draft 15 - PJ:
+
+   *  Fix issues found during review
 
 Authors' Addresses
 
@@ -1337,8 +1341,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-Backman, et al.           Expires 30 April 2023                [Page 24]
+Backman, et al.           Expires 5 August 2023                [Page 24]
