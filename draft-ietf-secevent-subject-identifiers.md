@@ -2,7 +2,7 @@
 title: Subject Identifiers for Security Event Tokens
 abbrev: secevent-subject-identifiers
 docname: draft-ietf-secevent-subject-identifiers-15
-date: 2023-02-01
+date: 2023-02-03
 category: std
 ipr: trust200902
 
@@ -470,7 +470,7 @@ Change Controller
 : For formats defined in documents published by the IETF or its working groups, list "IETF".  For all other formats, list the name of the party responsible for the registration.  Contact information such as mailing address, email address, or phone number may also be provided.
 
 Defining Document(s)
-: A reference to the document or documents that define the Identifier Format.  The definition MUST specify the name, format,and meaning of each member that may occur within a Subject Identifier of the defined format, as well as whether each member is optional, required or conditional. If conditional, the circumstances under which it is valid SHOULD be defined. URIs that can be used to retrieve copies of each document SHOULD be included.
+: A reference to the document or documents that define the Identifier Format.  The reference document(s) MUST specify the name, format,and meaning of each member that may occur within a Subject Identifier of the defined format, as well as whether each member is optional, required or conditional, and the circumstances under which these optional or conditional fields would be used. URIs that can be used to retrieve copies of each document SHOULD be included.
 
 ### Initial Registry Contents {#iana-formats-init}
 
