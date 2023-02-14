@@ -1,8 +1,8 @@
 ---
 title: Subject Identifiers for Security Event Tokens
 abbrev: secevent-subject-identifiers
-docname: draft-ietf-secevent-subject-identifiers-14
-date: 2022-10-27
+docname: draft-ietf-secevent-subject-identifiers-15
+date: 2023-02-03
 category: std
 ipr: trust200902
 
@@ -182,7 +182,7 @@ The following Identifier Formats are registered in the IANA "Security Event Iden
 Since the subject identifier format conveys semantic information, applications SHOULD choose the most specific possible format for the identifier in question. For example, an email address can be conveyed using a `mailto:` URI and the `uri` identifier format, but since the value is known to be an email address, the application should prefer to use the `email` identifier format instead.
 
 ### Account Identifier Format {#sub-id-acct}
-The Account Identifier Format identifies a subject using an account at a service provider, identified with an `acct` URI as defined in {{!RFC7565}}.  Subject Identifiers in this format MUST contain a `uri` member whose value is the `acct` URI for the subject.  The `uri` member is REQUIRED and MUST NOT be null or empty.  The Account Identifier Format is identified by a value of `account` in the `format` member.
+The Account Identifier Format identifies a subject using an account at a service provider, identified with an `acct` URI as defined in {{!RFC7565}}. An account is an arrangement or agreement through which a user gets access to a service and gets a unique identity with the service provider. Subject Identifiers in this format MUST contain a `uri` member whose value is the `acct` URI for the subject.  The `uri` member is REQUIRED and MUST NOT be null or empty.  The Account Identifier Format is identified by a value of `account` in the `format` member.
 
 Below is a non-normative example Subject Identifier for the Account Identifier Format:
 
@@ -470,7 +470,7 @@ Change Controller
 : For formats defined in documents published by the IETF or its working groups, list "IETF".  For all other formats, list the name of the party responsible for the registration.  Contact information such as mailing address, email address, or phone number may also be provided.
 
 Defining Document(s)
-: A reference to the document or documents that define the Identifier Format.  The definition MUST specify the name, format, and meaning of each member that may occur within a Subject Identifier of the defined format, as well as whether each member is optional, required, prohibited, or the circumstances under which the member may be optional, required, or prohibited. URIs that can be used to retrieve copies of each document SHOULD be included.
+: A reference to the document or documents that define the Identifier Format.  The reference document(s) MUST specify the name, format,and meaning of each member that may occur within a Subject Identifier of the defined format, as well as whether each member is optional, required or conditional, and the circumstances under which these optional or conditional fields would be used. URIs that can be used to retrieve copies of each document SHOULD be included.
 
 ### Initial Registry Contents {#iana-formats-init}
 
@@ -650,3 +650,7 @@ Draft 13 - PJ:
 Draft 14 - PJ:
 
 * Fix IANA issues found during AD review
+
+Draft 15 - PJ:
+
+* Fix issues found during review
