@@ -1298,6 +1298,10 @@ Internet-Draft        secevent-subject-identifiers         February 2023
 
    *  Fix issues found during review
 
+   Draft 16 - PJ:
+
+   *  Change controller updated to IETF
+
 Authors' Addresses
 
    Annabelle Backman (editor)
@@ -1313,10 +1317,6 @@ Authors' Addresses
    Prachi Jain
    Fastly
    Email: prachi.jain1288@gmail.com
-
-
-
-
 
 
 
