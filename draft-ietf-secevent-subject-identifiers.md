@@ -1,8 +1,8 @@
 ---
 title: Subject Identifiers for Security Event Tokens
 abbrev: secevent-subject-identifiers
-docname: draft-ietf-secevent-subject-identifiers-15
-date: 2023-02-03
+docname: draft-ietf-secevent-subject-identifiers-16
+date: 2023-02-14
 category: std
 ipr: trust200902
 
@@ -543,7 +543,7 @@ This document defines the `sub_id` JWT Claim, which IANA is asked to register in
 
 * Claim Name: "sub_id"
 * Claim Description: Subject Identifier
-* Change Controller: IESG
+* Change Controller: IETF
 * Specification Document(s): {{jwt-claims-sub_id}} of this document.
 
 --- back
