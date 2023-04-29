@@ -1,8 +1,8 @@
 ---
 title: Subject Identifiers for Security Event Tokens
 abbrev: secevent-subject-identifiers
-docname: draft-ietf-secevent-subject-identifiers-16
-date: 2023-02-14
+docname: draft-ietf-secevent-subject-identifiers-17
+date: 2023-04-29
 category: std
 ipr: trust200902
 
@@ -37,13 +37,13 @@ normative:
   BCP26: RFC8126
   E164:
     title: The international public telecommunication numbering plan
-    target: http://www.itu.int/rec/T-REC-E.164-201011-I/en
+    target: https://www.itu.int/rec/T-REC-E.164-201011-I/en
     author:
       org: International Telecommunication Union
     date: 2010
   IANA.JWT.Claims:
     title: JSON Web Token Claims
-    target: http://www.iana.org/assignments/jwt
+    target: https://www.iana.org/assignments/jwt
     author:
       org: IANA
   DID:
@@ -56,7 +56,7 @@ normative:
 informative:
   OpenID.Core:
     title: OpenID Connect Core 1.0
-    target: http://openid.net/specs/openid-connect-core-1_0.html
+    target: https://openid.net/specs/openid-connect-core-1_0.html
     date: November 2014
     author:
      -
@@ -86,13 +86,13 @@ informative:
 
 --- abstract
 
-Security events communicated within Security Event Tokens may support a variety of identifiers to identify subjects related to the event.  This specification formalizes the notion of subject identifiers as structured information that describe a subject, and named formats that define the syntax and semantics for encoding subject identifiers as JSON objects.  It also defines a registry for defining and allocating names for such formats, as well as the `sub_id` JSON Web Token (JWT) claim. 
+Security events communicated within Security Event Tokens may support a variety of identifiers to identify subjects related to the event.  This specification formalizes the notion of subject identifiers as structured information that describe a subject, and named formats that define the syntax and semantics for encoding subject identifiers as JSON objects.  It also defines a registry for defining and allocating names for such formats, as well as the "sub_id" JSON Web Token (JWT) claim. 
 
 --- middle
 
 Introduction {#intro}
 ============
-As described in Section 1.2 of SET {{!RFC8417}}, subjects related to security events may take a variety of forms, including but not limited to a JWT {{!RFC7519}} principal, an IP address, a URL, etc.  Different types of subjects may need to be identified in different ways (e.g., a host might be identified by an IP or MAC address, while a user might be identified by an email address).  Furthermore, even in the case where the type of the subject is known, there may be multiple ways by which a given subject may be identified.  For example, an account may be identified by an opaque identifier, an email address, a phone number, a JWT `iss` claim and `sub` claim, etc., depending on the nature and needs of the transmitter and receiver. Even within the context of a given transmitter and receiver relationship, it may be appropriate to identify different accounts in different ways, for example if some accounts only have email addresses associated with them while others only have phone numbers. Therefore it can be necessary to indicate within a SET the mechanism by which a subject is being identified.
+As described in Section 1.2 of SET {{!RFC8417}}, subjects related to security events may take a variety of forms, including but not limited to a JWT {{!RFC7519}} principal, an IP address, a URL, etc.  Different types of subjects may need to be identified in different ways (e.g., a user might be identified by an email address or a phone number or an account number).  Furthermore, even in the case where the type of the subject is known, there may be multiple ways by which a given subject may be identified.  For example, an account may be identified by an opaque identifier, an email address, a phone number, a JWT "iss" claim and "sub" claim, etc., depending on the nature and needs of the transmitter and receiver. Even within the context of a given transmitter and receiver relationship, it may be appropriate to identify different accounts in different ways, for example if some accounts only have email addresses associated with them while others only have phone numbers. Therefore it can be necessary to indicate within a SET the mechanism by which a subject is being identified.
 
 To address this problem, this specification defines Subject Identifiers - JSON {{!RFC8259}} objects containing information identifying a subject - and Identifier Formats - named sets of rules describing how to encode different kinds of subject identifying information (e.g., an email address, or an issuer and subject pair) as a Subject Identifier.
 
@@ -106,7 +106,7 @@ Below is a non-normative example of a Subject Identifier that identifies a subje
 ~~~
 {: #figexampleintro title="Example: Subject Identifier using the Email Identifier Format"}
 
-Subject Identifiers are intended to be a general-purpose mechanism for identifying subjects within JSON objects and their usage need not be limited to SETs.  Below is a non-normative example of a JWT that uses a Subject Identifier in the `sub_id` claim (defined in this specification) to identify the JWT Subject.
+Subject Identifiers are intended to be a general-purpose mechanism for identifying subjects within JSON objects and their usage need not be limited to SETs.  Below is a non-normative example of a JWT that uses a Subject Identifier in the "sub_id" claim (defined in this specification) to identify the JWT Subject.
 
 ~~~
 {
@@ -151,7 +151,7 @@ Notational Conventions {#conv}
 ======================
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
 "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-document are to be interpreted as described in {{!RFC2119}}.
+document are to be interpreted as described in BCP 14 {{!RFC2119}}{{!RFC8417}}.
 
 Definitions {#defn}
 ---------------
@@ -161,17 +161,17 @@ Within this specification, the terms "Subject" and "subject" refer generically t
 
 Subject Identifiers {#sub-ids}
 ===================
-A Subject Identifier is a JSON {{!RFC8259}} object whose contents may be used to identify a subject within some context.  An Identifier Format is a named definition of a set of information that may be used to identify a subject, and the rules for encoding that information as a Subject Identifier; they define the syntax and semantics of Subject Identifiers.  A Subject Identifier MUST conform to a specific Identifier Format, and MUST contain a `format` member whose value is the name of that Identifier Format.
+A Subject Identifier is a JSON {{!RFC8259}} object whose contents may be used to identify a subject within some context.  An Identifier Format is a named definition of a set of information that may be used to identify a subject, and the rules for encoding that information as a Subject Identifier; they define the syntax and semantics of Subject Identifiers.  A Subject Identifier MUST conform to a specific Identifier Format, and MUST contain a "format" member whose value is the name of that Identifier Format.
 
 Every Identifier Format MUST have a unique name registered in the IANA "Security Event Identifier Formats" registry established by {{iana-formats}}, or a Collision-Resistant Name as defined in {{!RFC7519}}.  Identifier Formats that are expected to be used broadly by a variety of parties SHOULD be registered in the "Security Event Identifier Formats" registry.
 
-An Identifier Format MAY describe more members than are strictly necessary to identify a subject, and MAY describe conditions under which those members are required, optional, or prohibited.  The `format` member is reserved for use as described in this specification; Identifier Formats MUST NOT declare any rules regarding the `format` member.
+An Identifier Format MAY describe more members than are strictly necessary to identify a subject, and MAY describe conditions under which those members are required, optional, or prohibited.  The "format" member is reserved for use as described in this specification; Identifier Formats MUST NOT declare any rules regarding the "format" member.
 
 Every member within a Subject Identifier MUST match the rules specified for that member by this specification or by Subject Identifier's Identifier Format.  A Subject Identifier MUST NOT contain any members prohibited or not described by its Identifier Format, and MUST contain all members required by its Identifier Format.
 
 Identifier Formats versus Principal Types
 -----------------------------------------------
-Identifier Formats define how to encode identifying information for a subject.  Unlike Principal Types, they do not define the type or nature of the subject itself.  E.g., While the `email` Identifier Format declares that the value of the `email` member is an email address, a subject in a Security Event that is identified by an `email` Subject Identifier could be an end user who controls that email address, the mailbox itself, or anything else that the transmitter and receiver both understand to be associated with that email address.  Consequently Subject Identifiers remove ambiguity around how a subject is being identified, and how to parse an identifying structure, but do not remove ambiguity around how to resolve that identifier to a subject.  For example, consider a directory management API that allows callers to identify users and groups through both opaque unique identifiers and email addresses.  Such an API could use Subject Identifiers to disambiguate between which of these two types of identifiers is in use.  However, the API would have to determine whether the subject is a user or group via some other means, such as by querying a database, interpreting other parameters in the request, or inferring the type from the API contract.
+Identifier Formats define how to encode identifying information for a subject.  Unlike Principal Types, they do not define the type or nature of the subject itself.  For example, while the "email" Identifier Format declares that the value of the "email" member is an email address, a subject in a Security Event that is identified by an "email" Subject Identifier could be an end user who controls that email address, the mailbox itself, or anything else that the transmitter and receiver both understand to be associated with that email address.  Consequently Subject Identifiers remove ambiguity around how a subject is being identified, and how to parse an identifying structure, but do not remove ambiguity around how to resolve that identifier to a subject.  For example, consider a directory management API that allows callers to identify users and groups through both opaque unique identifiers and email addresses.  Such an API could use Subject Identifiers to disambiguate between which of these two types of identifiers is in use.  However, the API would have to determine whether the subject is a user or group via some other means, such as by querying a database, interpreting other parameters in the request, or inferring the type from the API contract.
 
 
 Identifier Format Definitions
@@ -179,10 +179,10 @@ Identifier Format Definitions
 
 The following Identifier Formats are registered in the IANA "Security Event Identifier Formats" registry established by {{iana-formats}}.
 
-Since the subject identifier format conveys semantic information, applications SHOULD choose the most specific possible format for the identifier in question. For example, an email address can be conveyed using a `mailto:` URI and the `uri` identifier format, but since the value is known to be an email address, the application should prefer to use the `email` identifier format instead.
+Since the subject identifier format conveys semantic information, applications SHOULD choose the most specific possible format for the identifier in question. For example, an email address can be conveyed using a `mailto:` URI and the `uri` identifier format, but since the value is known to be an email address, the application should prefer to use the "email" identifier format instead.
 
 ### Account Identifier Format {#sub-id-acct}
-The Account Identifier Format identifies a subject using an account at a service provider, identified with an `acct` URI as defined in {{!RFC7565}}. An account is an arrangement or agreement through which a user gets access to a service and gets a unique identity with the service provider. Subject Identifiers in this format MUST contain a `uri` member whose value is the `acct` URI for the subject.  The `uri` member is REQUIRED and MUST NOT be null or empty.  The Account Identifier Format is identified by a value of `account` in the `format` member.
+The Account Identifier Format identifies a subject using an account at a service provider, identified with an "acct" URI as defined in {{!RFC7565}}. An account is an arrangement or agreement through which a user gets access to a service and gets a unique identity with the service provider. Subject Identifiers in this format MUST contain a "uri" member whose value is the "acct" URI for the subject.  The "uri" member is REQUIRED and MUST NOT be null or empty.  The Account Identifier Format is identified by a value of "account" in the "format" member.
 
 Below is a non-normative example Subject Identifier for the Account Identifier Format:
 
@@ -195,7 +195,7 @@ Below is a non-normative example Subject Identifier for the Account Identifier F
 {: #figexamplesubidaccount title="Example: Subject Identifier for the Account Identifier Format"}
 
 ### Email Identifier Format {#sub-id-email}
-The Email Identifier Format identifies a subject using an email address.  Subject Identifiers in this format MUST contain an `email` member whose value is a string containing the email address of the subject, formatted as an `addr-spec` as defined in Section 3.4.1 of {{!RFC5322}}. The `email` member is REQUIRED and MUST NOT be null or empty. The value of the `email` member SHOULD identify a mailbox to which email may be delivered, in accordance with {{!RFC5321}}. The Email Identifier Format is identified by the name `email`.
+The Email Identifier Format identifies a subject using an email address.  Subject Identifiers in this format MUST contain an "email" member whose value is a string containing the email address of the subject, formatted as an "addr-spec" as defined in Section 3.4.1 of {{!RFC5322}}. The "email" member is REQUIRED and MUST NOT be null or empty. The value of the "email" member MUST identify a mailbox to which email may be delivered, in accordance with {{!RFC5321}}. The Email Identifier Format is identified by the name "email".
 
 Below is a non-normative example Subject Identifier in the Email Identifier Format:
 
@@ -211,7 +211,7 @@ Below is a non-normative example Subject Identifier in the Email Identifier Form
 Many email providers will treat multiple email addresses as equivalent. While the domain portion of an {{?RFC5322}} email address is consistently treated as case-insensitive per {{?RFC1034}}, some providers treat the local part of the email address as case-insensitive as well, and consider "user@example.com", "User@example.com", and "USER@example.com" as the same email address. This has led users to view these strings as equivalent, driving service providers to implement proprietary email canonicalization algorithms to ensure that email addresses entered by users resolve to the same canonical string. When receiving an Email Subject Identifier, the recipient SHOULD use their implementation's canonicalization algorithm to resolve the email address to the same string used in their system.
 
 ### Issuer and Subject Identifier Format {#sub-id-iss-sub}
-The Issuer and Subject Identifier Format identifies a subject using a pair of `iss` and `sub` members, analogous to how subjects are identified using the `iss` and `sub` claims in [OpenID Connect](#OpenID.Core) ID Tokens.  These members MUST follow the formats of the `iss` member and `sub` member defined by {{!RFC7519}}, respectively.  Both the `iss` member and the `sub` member are REQUIRED and MUST NOT be null or empty. The Issuer and Subject Identifier Format is identified by the name `iss_sub`.
+The Issuer and Subject Identifier Format identifies a subject using a pair of "iss" and "sub" members, analogous to how subjects are identified using the "iss" and "sub" claims in [OpenID Connect](#OpenID.Core) ID Tokens.  These members MUST follow the formats of the "iss" member and "sub" member defined by {{!RFC7519}}, respectively.  Both the "iss" member and the "sub" member are REQUIRED and MUST NOT be null or empty. The Issuer and Subject Identifier Format is identified by the name "iss_sub".
 
 Below is a non-normative example Subject Identifier in the Issuer and Subject Identifier Format:
 
@@ -225,7 +225,7 @@ Below is a non-normative example Subject Identifier in the Issuer and Subject Id
 {: #figexamplesubidisssub  title="Example: Subject Identifier in the Issuer and Subject Identifier Format"}
 
 ### Opaque Identifier Format {#sub-id-opaque}
-The Opaque Identifier Format describes a subject that is identified with a string with no semantics asserted beyond its usage as an identifier for the subject, such as a UUID or hash used as a surrogate identifier for a record in a database.  Subject Identifiers in this format MUST contain an `id` member whose value is a JSON string containing the opaque string identifier for the subject.  The `id` member is REQUIRED and MUST NOT be null or empty.  The Opaque Identifier Format is identified by the name `opaque`.
+The Opaque Identifier Format describes a subject that is identified with a string with no semantics asserted beyond its usage as an identifier for the subject, such as a UUID or hash used as a surrogate identifier for a record in a database.  Subject Identifiers in this format MUST contain an "id" member whose value is a JSON string containing the opaque string identifier for the subject.  The "id" member is REQUIRED and MUST NOT be null or empty.  The Opaque Identifier Format is identified by the name "opaque".
 
 Below is a non-normative example Subject Identifier in the Opaque Identifier Format:
 
@@ -238,7 +238,7 @@ Below is a non-normative example Subject Identifier in the Opaque Identifier For
 {: #figexamplesubidopaque title="Example: Subject Identifier in the Opaque Identifier Format"}
 
 ### Phone Number Identifier Format {#sub-id-phone}
-The Phone Number Identifier Format identifies a subject using a telephone number.  Subject Identifiers in this format MUST contain a `phone_number` member whose value is a string containing the full telephone number of the subject, including international dialing prefix, formatted according to [E.164](#E164). The `phone_number` member is REQUIRED and MUST NOT be null or empty. The Phone Number Identifier Format is identified by the name `phone_number`.
+The Phone Number Identifier Format identifies a subject using a telephone number.  Subject Identifiers in this format MUST contain a "phone_number" member whose value is a string containing the full telephone number of the subject, including international dialing prefix, formatted according to [E.164](#E164). The "phone_number" member is REQUIRED and MUST NOT be null or empty. The Phone Number Identifier Format is identified by the name "phone_number".
 
 Below is a non-normative example Subject Identifier in the Email Identifier Format:
 
@@ -252,7 +252,7 @@ Below is a non-normative example Subject Identifier in the Email Identifier Form
 
 ### Decentralized Identifier (DID) Format {#sub-id-did}
 
-The Decentralized Identifier Format identifies a subject using a Decentralized Identifier (DID) URL as defined in {{DID}}.  Subject Identifiers in this format MUST contain a `url` member whose value is a DID URL for the DID Subject being identified. The value of the `url` member MUST be a valid DID URL and MAY be a bare DID. The `url` member is REQUIRED and MUST NOT be null or empty. The Decentralized Identifier Format is identified by the name `did`.
+The Decentralized Identifier Format identifies a subject using a Decentralized Identifier (DID) URL as defined in {{DID}}.  Subject Identifiers in this format MUST contain a "URL" member whose value is a DID URL for the DID Subject being identified. The value of the "url" member MUST be a valid DID URL and MAY be a bare DID. The "url" member is REQUIRED and MUST NOT be null or empty. The Decentralized Identifier Format is identified by the name "did".
  
 Below are non-normative example Subject Identifiers for the Decentralized Identifier Format:
  
@@ -274,7 +274,7 @@ Below are non-normative example Subject Identifiers for the Decentralized Identi
 
 ### Uniform Resource Identifier (URI) Format {#sub-id-uri}
 
-The Uniform Resource Identifier (URI) Format identifies a subject using a URI as defined in {{!RFC3986}}. This identifier format makes no assumptions or guarantees with regard to the content, scheme, or reachability of the URI within the field. Subject Identifiers in this format MUST contain a `uri` members whose value is a URI for the subject being identified. The `uri` member is REQUIRED and MUST NOT be null or empty. The URI format is identified by the name `uri`.
+The Uniform Resource Identifier (URI) Format identifies a subject using a URI as defined in {{!RFC3986}}. This identifier format makes no assumptions or guarantees with regard to the content, scheme, or reachability of the URI within the field. Subject Identifiers in this format MUST contain a "uri" member whose value is a URI for the subject being identified. The "uri" member is REQUIRED and MUST NOT be null or empty. The URI format is identified by the name "uri".
 
 Below are non-normative example Subject Identifiers for the URI format:
 
@@ -295,9 +295,9 @@ Below are non-normative example Subject Identifiers for the URI format:
 {: #figexamplesubidurnbare title="Example: Subject Identifier for the URI Format, identifying a subject with a random URN"}
 
 ### Aliases Identifier Format {#sub-id-aliases}
-The Aliases Identifier Format describes a subject that is identified with a list of different Subject Identifiers. It is intended for use when a variety of identifiers have been shared with the party that will be interpreting the Subject Identifier, and it is unknown which of those identifiers they will recognize or support.  Subject Identifiers in this format MUST contain an `identifiers` member whose value is a JSON array containing one or more Subject Identifiers.  Each Subject Identifier in the array MUST identify the same entity.  The `identifiers` member is REQUIRED and MUST NOT be null or empty.  It MAY contain multiple instances of the same Identifier Format (e.g., multiple Email Subject Identifiers), but SHOULD NOT contain exact duplicates.  This format is identified by the name `aliases`. 
+The Aliases Identifier Format describes a subject that is identified with a list of different Subject Identifiers. It is intended for use when a variety of identifiers have been shared with the party that will be interpreting the Subject Identifier, and it is unknown which of those identifiers they will recognize or support.  Subject Identifiers in this format MUST contain an "identifiers" member whose value is a JSON array containing one or more Subject Identifiers.  Each Subject Identifier in the array MUST identify the same entity.  The "identifiers" member is REQUIRED and MUST NOT be null or empty.  It MAY contain multiple instances of the same Identifier Format (e.g., multiple Email Subject Identifiers), but SHOULD NOT contain exact duplicates.  This format is identified by the name "aliases". 
 
-`aliases` Subject Identifiers MUST NOT be nested; i.e., the `identifiers` member of an `aliases` Subject Identifier MUST NOT contain a Subject Identifier in the `aliases` format.
+"aliases" Subject Identifiers MUST NOT be nested; i.e., the "identifiers" member of an "aliases" Subject Identifier MUST NOT contain a Subject Identifier in the "aliases" format.
 
 Below is a non-normative example Subject Identifier in the Aliases Identifier Format:
 
@@ -328,11 +328,11 @@ Subject Identifiers in JWTs {#jwt-claims}
 
 `sub_id` Claim {#jwt-claims-sub_id}
 --------------
-The `sub` JWT Claim is defined in Section 4.1.2 of {{!RFC7519}} as containing a string value, and therefore cannot contain a Subject Identifier (which is a JSON object) as its value.  This document defines the `sub_id` JWT Claim, in accordance with Section 4.2 of {{!RFC7519}}, as a common claim that identifies the JWT Subject using a Subject Identifier.  When present, the value of this claim MUST be a Subject Identifier that identifies the subject of the JWT.  The `sub_id` claim MAY be included in a JWT, whether or not the `sub` claim is present.  When both the `sub` and `sub_id` claims are present in a JWT, they MUST identify the same subject, as a JWT has one and only one JWT Subject.
+The "sub" JWT Claim is defined in Section 4.1.2 of {{!RFC7519}} as containing a string value, and therefore cannot contain a Subject Identifier (which is a JSON object) as its value.  This document defines the "sub_id" JWT Claim, in accordance with Section 4.2 of {{!RFC7519}}, as a common claim that identifies the JWT Subject using a Subject Identifier.  When present, the value of this claim MUST be a Subject Identifier that identifies the subject of the JWT.  The "sub_id" claim MAY be included in a JWT, whether or not the "sub" claim is present.  When both the "sub" and "sub_id" claims are present in a JWT, they MUST identify the same subject, as a JWT has one and only one JWT Subject.
 
-When processing a JWT with both `sub` and `sub_id` claims, implementations MUST NOT rely on both claims to determine the JWT Subject.  An implementation MAY attempt to determine the JWT Subject from one claim and fall back to using the other if it determines it does not understand the format of the first claim.  For example, an implementation may attempt to use `sub_id`, and fall back to using `sub` upon finding that `sub_id` contains a Subject Identifier whose format is not recognized by the implementation.
+When processing a JWT with both "sub" and "sub_id" claims, implementations MUST NOT rely on both claims to determine the JWT Subject.  An implementation MAY attempt to determine the JWT Subject from one claim and fall back to using the other if it determines it does not understand the format of the first claim.  For example, an implementation may attempt to use "sub_id", and fall back to using "sub" upon finding that "sub_id" contains a Subject Identifier whose format is not recognized by the implementation.
 
-Below are non-normative examples of JWTs containing the `sub_id` claim:
+Below are non-normative examples of JWTs containing the "sub_id" claim:
 
 ~~~
 {
@@ -383,9 +383,9 @@ Below are non-normative examples of JWTs containing the `sub_id` claim:
 
 `sub_id` and `iss_sub` Subject Identifiers
 ------------------------------------------
-The `sub_id` claim MAY contain an `iss_sub` Subject Identifier.  In this case, the JWT's `iss` claim and the Subject Identifier's `iss` member MAY be different.  For example, in [OpenID Connect](#OpenID.Core) client may construct such a JWT when sending JWTs back to its OpenID Connect Identity Provider, in order to identify the JWT Subject using an identifier known to be understood by both parties.  Similarly, the JWT's `sub` claim and the Subject Identifier's `sub` member MAY be different.  For example, this may be used by an OpenID Connect client to communicate the JWT Subject's local identifier at the client back to its Identity Provider.
+The "sub_id" claim MAY contain an "iss_sub" Subject Identifier.  In this case, the JWT's "iss" claim and the Subject Identifier's "iss" member MAY be different.  For example, in [OpenID Connect](#OpenID.Core) client may construct such a JWT when sending JWTs back to its OpenID Connect Identity Provider, in order to identify the JWT Subject using an identifier known to be understood by both parties.  Similarly, the JWT's "sub" claim and the Subject Identifier's "sub" member MAY be different.  For example, this may be used by an OpenID Connect client to communicate the JWT Subject's local identifier at the client back to its Identity Provider.
 
-Below are non-normative examples of a JWT where the `iss` claim and `iss` member within the `sub_id` claim are the same, and a JWT where they are different.
+Below are non-normative examples of a JWT where the "iss" claim and "iss" member within the "sub_id" claim are the same, and a JWT where they are different.
 
 ~~~
 {
@@ -433,7 +433,7 @@ Privacy Considerations {#privacy}
 
 Identifier Correlation
 ----------------------
-The act of presenting two or more identifiers for a single subject together (e.g., within an `aliases` Subject Identifier, or via the `sub` and `sub_id` JWT claims) may communicate more information about the subject than was intended.  For example, the entity to which the identifiers are presented now knows that both identifiers relate to the same subject, and may be able to correlate additional data based on that.  When transmitting Subject Identifiers, the transmitter SHOULD take care that they are only transmitting multiple identifiers together when it is known that the recipient already knows that the identifiers are related (e.g., because they were previously sent to the recipient as claims in an OpenID Connect ID Token), or when correlation is essential to the use case.  Implementers must consider such risks, and specifications that use subject identifiers must provide appropriate privacy considerations of their own.
+The act of presenting two or more identifiers for a single subject together (e.g., within an "aliases" Subject Identifier, or via the "sub" and "sub_id" JWT claims) may communicate more information about the subject than was intended.  For example, the entity to which the identifiers are presented now knows that both identifiers relate to the same subject, and may be able to correlate additional data based on that.  When transmitting Subject Identifiers, the transmitter SHOULD take care that they are only transmitting multiple identifiers together when it is known that the recipient already knows that the identifiers are related (e.g., because they were previously sent to the recipient as claims in an OpenID Connect ID Token), or when correlation is essential to the use case.  Implementers must consider such risks, and specifications that use subject identifiers must provide appropriate privacy considerations of their own.
 
 The considerations described in Section 6 of {{!RFC8417}} also apply when Subject Identifiers are used within SETs.  The considerations described in Section 12 of {{!RFC7519}} also apply when Subject Identifiers are used within JWTs.
 
@@ -467,7 +467,7 @@ Format Description
 : A brief description of the Identifier Format.
 
 Change Controller
-: For formats defined in documents published by the IETF or its working groups, list "IETF".  For all other formats, list the name of the party responsible for the registration.  Contact information such as mailing address, email address, or phone number may also be provided.
+: For formats defined in documents published by the IETF or its working groups, list "IETF".  For all other formats, list the name of the party responsible for the registration.  Contact information such as mailing address, email address, or phone number must also be provided.
 
 Defining Document(s)
 : A reference to the document or documents that define the Identifier Format.  The reference document(s) MUST specify the name, format,and meaning of each member that may occur within a Subject Identifier of the defined format, as well as whether each member is optional, required or conditional, and the circumstances under which these optional or conditional fields would be used. URIs that can be used to retrieve copies of each document SHOULD be included.
@@ -531,7 +531,7 @@ Defining Document(s)
 * Defining Document(s): {{sub-ids}} of this document.
 
 ### Guidance for Expert Reviewers {#iana-formats-expert}
-The Expert Reviewer is expected to review the documentation referenced in a registration request to verify its completeness. The Expert Reviewer must base their decision to accept or reject the request on a fair and impartial assessment of the request. If the Expert Reviewer has a conflict of interest, such as being an author of a defining document referenced by the request, they must recuse themselves from the approval process for that request. In the case where a request is rejected, the Expert Reviewer must provide the requesting party with a written statement expressing the reason for rejection, and be prepared to cite any sources of information that went into that decision.
+The Expert Reviewer is expected to review the documentation referenced in a registration request to verify its completeness. The Expert Reviewer must base their decision to accept or reject the request on a fair and impartial assessment of the request. If the Expert Reviewer has a conflict of interest, such as being an author of a defining document referenced by the request, they must recuse themselves from the approval process for that request.
 
 Identifier Formats need not be generally applicable and may be highly specific to a particular domain; it is expected that formats may be registered for niche or industry-specific use cases. The Expert Reviewer should focus on whether the format is thoroughly documented, and whether its registration will promote or harm interoperability.  In most cases, the Expert Reviewer should not approve a request if the registration would contribute to confusion, or amount to a synonym for an existing format.
  
@@ -658,3 +658,7 @@ Draft 15 - PJ:
 Draft 16 - PJ:
 
 * Change controller updated to IETF
+
+Draft 17 -PJ:
+
+* Fixed nits identified during IESG reviews
