@@ -408,14 +408,11 @@ Internet-Draft        secevent-subject-identifiers             June 2023
    as equivalent.  This has led users to view these strings as
    equivalent, driving service providers to implement proprietary email
    canonicalization algorithms to ensure that email addresses entered by
-   users resolve to the same canonical string.  When receiving an Email
-   Subject Identifier, the recipient SHOULD use their implementation's
-   canonicalization algorithm to resolve the email address to the same
-   string used in their system.  Canonicalization is only necessary if
-   the domain portion of the email address is one that the local system
-   considers to be a local address.  For example, if an example.com
-   system receives an email from test.com, it shouldn't be applying
-   canonicalization at all.
+   users resolve to the same canonical string.  Email canonicalization
+   is not standardized, and there is no way for the event recipient to
+   determine the mail provider's canonicalization method.  Therefore,
+   the best we can do is for the recipient to apply its own
+   canonicalization algorithm to incoming events.
 
 3.2.3.  Issuer and Subject Identifier Format
 
@@ -439,6 +436,9 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
       Figure 6: Example: Subject Identifier in the Issuer and Subject
                              Identifier Format
+
+
+
 
 
 
