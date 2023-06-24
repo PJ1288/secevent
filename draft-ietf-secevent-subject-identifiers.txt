@@ -5,10 +5,10 @@
 Security Events Working Group                            A. Backman, Ed.
 Internet-Draft                                                    Amazon
 Intended status: Standards Track                            M. Scurtescu
-Expires: 23 December 2023                                       Coinbase
+Expires: 26 December 2023                                       Coinbase
                                                                  P. Jain
                                                                   Fastly
-                                                            21 June 2023
+                                                            24 June 2023
 
 
              Subject Identifiers for Security Event Tokens
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 December 2023.
+   This Internet-Draft will expire on 26 December 2023.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Backman, et al.         Expires 23 December 2023                [Page 1]
+Backman, et al.         Expires 26 December 2023                [Page 1]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Backman, et al.         Expires 23 December 2023                [Page 2]
+Backman, et al.         Expires 26 December 2023                [Page 2]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -165,7 +165,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023                [Page 3]
+Backman, et al.         Expires 26 December 2023                [Page 3]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -221,7 +221,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023                [Page 4]
+Backman, et al.         Expires 26 December 2023                [Page 4]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -277,7 +277,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023                [Page 5]
+Backman, et al.         Expires 26 December 2023                [Page 5]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -333,7 +333,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023                [Page 6]
+Backman, et al.         Expires 26 December 2023                [Page 6]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -389,7 +389,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023                [Page 7]
+Backman, et al.         Expires 26 December 2023                [Page 7]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -402,17 +402,18 @@ Internet-Draft        secevent-subject-identifiers             June 2023
    providers treat the local part of the email address as case-
    insensitive as well, and consider "user@example.com",
    "User@example.com", and "USER@example.com" as the same email address.
-   Some providers also treat dots (".") as optional, for example
-   user.name@example.com, username@example.com,
-   u.s.e.r.name@example.com, u.s.e.r.n.a.m.e@example.com are all treated
-   as equivalent.  This has led users to view these strings as
-   equivalent, driving service providers to implement proprietary email
-   canonicalization algorithms to ensure that email addresses entered by
-   users resolve to the same canonical string.  Email canonicalization
-   is not standardized, and there is no way for the event recipient to
-   determine the mail provider's canonicalization method.  Therefore,
-   the best we can do is for the recipient to apply its own
-   canonicalization algorithm to incoming events.
+   Some providers also treat dots (".") as optional; for example,
+   "user.name@example.com", "username@example.com",
+   "u.s.e.r.name@example.com", and "u.s.e.r.n.a.m.e@example.com" might
+   all be treated as equivalent.  This has led users to view these
+   strings as equivalent, driving service providers to implement
+   proprietary email canonicalization algorithms to ensure that email
+   addresses entered by users resolve to the same canonical string.
+   Email canonicalization is not standardized, and there is no way for
+   the event recipient to determine the mail provider's canonicalization
+   method.  Therefore, the recipient SHOULD apply its own
+   canonicalization algorithm to incoming events that reproduces the
+   translation done by the local email system.
 
 3.2.3.  Issuer and Subject Identifier Format
 
@@ -444,8 +445,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-
-Backman, et al.         Expires 23 December 2023                [Page 8]
+Backman, et al.         Expires 26 December 2023                [Page 8]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -501,7 +501,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023                [Page 9]
+Backman, et al.         Expires 26 December 2023                [Page 9]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -557,7 +557,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 10]
+Backman, et al.         Expires 26 December 2023               [Page 10]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -613,7 +613,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 11]
+Backman, et al.         Expires 26 December 2023               [Page 11]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -669,7 +669,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 12]
+Backman, et al.         Expires 26 December 2023               [Page 12]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -725,7 +725,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 13]
+Backman, et al.         Expires 26 December 2023               [Page 13]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -781,7 +781,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 14]
+Backman, et al.         Expires 26 December 2023               [Page 14]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -837,7 +837,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 15]
+Backman, et al.         Expires 26 December 2023               [Page 15]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -893,7 +893,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 16]
+Backman, et al.         Expires 26 December 2023               [Page 16]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -949,7 +949,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 17]
+Backman, et al.         Expires 26 December 2023               [Page 17]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -1005,7 +1005,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 18]
+Backman, et al.         Expires 26 December 2023               [Page 18]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -1061,7 +1061,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 19]
+Backman, et al.         Expires 26 December 2023               [Page 19]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -1117,7 +1117,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 20]
+Backman, et al.         Expires 26 December 2023               [Page 20]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -1173,7 +1173,7 @@ Change Log
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 21]
+Backman, et al.         Expires 26 December 2023               [Page 21]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -1229,7 +1229,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 22]
+Backman, et al.         Expires 26 December 2023               [Page 22]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -1285,7 +1285,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 23]
+Backman, et al.         Expires 26 December 2023               [Page 23]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -1341,7 +1341,7 @@ Internet-Draft        secevent-subject-identifiers             June 2023
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 24]
+Backman, et al.         Expires 26 December 2023               [Page 24]
 
 Internet-Draft        secevent-subject-identifiers             June 2023
 
@@ -1397,4 +1397,4 @@ Authors' Addresses
 
 
 
-Backman, et al.         Expires 23 December 2023               [Page 25]
+Backman, et al.         Expires 26 December 2023               [Page 25]

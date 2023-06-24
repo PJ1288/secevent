@@ -2,7 +2,7 @@
 title: Subject Identifiers for Security Event Tokens
 abbrev: secevent-subject-identifiers
 docname: draft-ietf-secevent-subject-identifiers-18
-date: 2023-06-21
+date: 2023-06-24
 category: std
 ipr: trust200902
 
@@ -208,7 +208,7 @@ Below is a non-normative example Subject Identifier in the Email Identifier Form
 {: #figexamplesubidemail  title="Example: Subject Identifier in the Email Identifier Format"}
 
 #### Email Canonicalization {#email-canon}
-Many email providers will treat multiple email addresses as equivalent. While the domain portion of an {{?RFC5322}} email address is consistently treated as case-insensitive per {{?RFC1034}}, most providers treat the local part of the email address as case-insensitive as well, and consider "user@example.com", "User@example.com", and "USER@example.com" as the same email address. Some providers also treat dots (".") as optional, for example user.name@example.com, username@example.com, u.s.e.r.name@example.com, u.s.e.r.n.a.m.e@example.com are all treated as equivalent. This has led users to view these strings as equivalent, driving service providers to implement proprietary email canonicalization algorithms to ensure that email addresses entered by users resolve to the same canonical string. Email canonicalization is not standardized, and there is no way for the event recipient to determine the mail provider’s canonicalization method. Therefore, the best we can do is for the recipient to apply its own canonicalization algorithm to incoming events. 
+Many email providers will treat multiple email addresses as equivalent. While the domain portion of an {{?RFC5322}} email address is consistently treated as case-insensitive per {{?RFC1034}}, most providers treat the local part of the email address as case-insensitive as well, and consider "user@example.com", "User@example.com", and "USER@example.com" as the same email address. Some providers also treat dots (".") as optional; for example, "user.name@example.com", "username@example.com", "u.s.e.r.name@example.com", and "u.s.e.r.n.a.m.e@example.com" might all be treated as equivalent. This has led users to view these strings as equivalent, driving service providers to implement proprietary email canonicalization algorithms to ensure that email addresses entered by users resolve to the same canonical string. Email canonicalization is not standardized, and there is no way for the event recipient to determine the mail provider’s canonicalization method. Therefore, the recipient SHOULD apply its own canonicalization algorithm to incoming events that reproduces the translation done by the local email system. 
 
 ### Issuer and Subject Identifier Format {#sub-id-iss-sub}
 The Issuer and Subject Identifier Format identifies a subject using a pair of "iss" and "sub" members, analogous to how subjects are identified using the "iss" and "sub" claims in [OpenID Connect](#OpenID.Core) ID Tokens.  These members MUST follow the formats of the "iss" member and "sub" member defined by {{!RFC7519}}, respectively.  Both the "iss" member and the "sub" member are REQUIRED and MUST NOT be null or empty. The Issuer and Subject Identifier Format is identified by the name "iss_sub".
